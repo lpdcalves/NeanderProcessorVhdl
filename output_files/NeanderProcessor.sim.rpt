@@ -1,0 +1,305 @@
+Simulator report for NeanderProcessor
+Mon Jun 10 18:56:39 2019
+Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Simulator Summary
+  3. Simulator Settings
+  4. Simulation Waveforms
+  5. Coverage Summary
+  6. Complete 1/0-Value Coverage
+  7. Missing 1-Value Coverage
+  8. Missing 0-Value Coverage
+  9. Simulator INI Usage
+ 10. Simulator Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------+
+; Simulator Summary                          ;
++-----------------------------+--------------+
+; Type                        ; Value        ;
++-----------------------------+--------------+
+; Simulation Start Time       ; 0 ps         ;
+; Simulation End Time         ; 1.0 us       ;
+; Simulation Netlist Size     ; 129 nodes    ;
+; Simulation Coverage         ;      86.82 % ;
+; Total Number of Transitions ; 563          ;
+; Simulation Breakpoints      ; 0            ;
+; Family                      ; Cyclone II   ;
++-----------------------------+--------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Simulator Settings                                                                                                                                                                                       ;
++--------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------+---------------+
+; Option                                                                                     ; Setting                                                                                     ; Default Value ;
++--------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------+---------------+
+; Simulation mode                                                                            ; Functional                                                                                  ; Timing        ;
+; Start time                                                                                 ; 0 ns                                                                                        ; 0 ns          ;
+; Simulation results format                                                                  ; VWF                                                                                         ;               ;
+; Vector input source                                                                        ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl-master/ULAwafeform.vwf ;               ;
+; Add pins automatically to simulation output waveforms                                      ; On                                                                                          ; On            ;
+; Check outputs                                                                              ; Off                                                                                         ; Off           ;
+; Report simulation coverage                                                                 ; On                                                                                          ; On            ;
+; Display complete 1/0 value coverage report                                                 ; On                                                                                          ; On            ;
+; Display missing 1-value coverage report                                                    ; On                                                                                          ; On            ;
+; Display missing 0-value coverage report                                                    ; On                                                                                          ; On            ;
+; Detect setup and hold time violations                                                      ; Off                                                                                         ; Off           ;
+; Detect glitches                                                                            ; Off                                                                                         ; Off           ;
+; Disable timing delays in Timing Simulation                                                 ; Off                                                                                         ; Off           ;
+; Generate Signal Activity File                                                              ; Off                                                                                         ; Off           ;
+; Generate VCD File for PowerPlay Power Analyzer                                             ; Off                                                                                         ; Off           ;
+; Group bus channels in simulation results                                                   ; Off                                                                                         ; Off           ;
+; Preserve fewer signal transitions to reduce memory requirements                            ; On                                                                                          ; On            ;
+; Trigger vector comparison with the specified mode                                          ; INPUT_EDGE                                                                                  ; INPUT_EDGE    ;
+; Disable setup and hold time violations detection in input registers of bi-directional pins ; Off                                                                                         ; Off           ;
+; Overwrite Waveform Inputs With Simulation Outputs                                          ; Off                                                                                         ;               ;
+; Perform Glitch Filtering in Timing Simulation                                              ; Auto                                                                                        ; Auto          ;
++--------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------+---------------+
+
+
++----------------------+
+; Simulation Waveforms ;
++----------------------+
+Waveform report data cannot be output to ASCII.
+Please use Quartus II 64-Bit to view the waveform report data.
+
+
++--------------------------------------------------------------------+
+; Coverage Summary                                                   ;
++-----------------------------------------------------+--------------+
+; Type                                                ; Value        ;
++-----------------------------------------------------+--------------+
+; Total coverage as a percentage                      ;      86.82 % ;
+; Total nodes checked                                 ; 129          ;
+; Total output ports checked                          ; 129          ;
+; Total output ports with complete 1/0-value coverage ; 112          ;
+; Total output ports with no 1/0-value coverage       ; 14           ;
+; Total output ports with no 1-value coverage         ; 17           ;
+; Total output ports with no 0-value coverage         ; 14           ;
++-----------------------------------------------------+--------------+
+
+
+The following table displays output ports that toggle between 1 and 0 during simulation.
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Complete 1/0-Value Coverage                                                                                                                    ;
++--------------------------------------------------------------+--------------------------------------------------------------+------------------+
+; Node Name                                                    ; Output Port Name                                             ; Output Port Type ;
++--------------------------------------------------------------+--------------------------------------------------------------+------------------+
+; |ULA|bufferSaida[0]~0                                        ; |ULA|bufferSaida[0]~0                                        ; out              ;
+; |ULA|bufferSaida[0]~1                                        ; |ULA|bufferSaida[0]~1                                        ; out              ;
+; |ULA|bufferSaida~44                                          ; |ULA|bufferSaida~44                                          ; out0             ;
+; |ULA|bufferSaida~45                                          ; |ULA|bufferSaida~45                                          ; out0             ;
+; |ULA|bufferSaida~46                                          ; |ULA|bufferSaida~46                                          ; out0             ;
+; |ULA|bufferSaida~47                                          ; |ULA|bufferSaida~47                                          ; out0             ;
+; |ULA|bufferSaida~48                                          ; |ULA|bufferSaida~48                                          ; out0             ;
+; |ULA|bufferSaida~49                                          ; |ULA|bufferSaida~49                                          ; out0             ;
+; |ULA|bufferSaida~50                                          ; |ULA|bufferSaida~50                                          ; out0             ;
+; |ULA|bufferSaida~51                                          ; |ULA|bufferSaida~51                                          ; out0             ;
+; |ULA|bufferSaida~52                                          ; |ULA|bufferSaida~52                                          ; out0             ;
+; |ULA|bufferSaida~53                                          ; |ULA|bufferSaida~53                                          ; out0             ;
+; |ULA|bufferSaida[7]~2                                        ; |ULA|bufferSaida[7]~2                                        ; out              ;
+; |ULA|bufferSaida[6]~3                                        ; |ULA|bufferSaida[6]~3                                        ; out              ;
+; |ULA|bufferSaida[5]~4                                        ; |ULA|bufferSaida[5]~4                                        ; out              ;
+; |ULA|bufferSaida[4]~5                                        ; |ULA|bufferSaida[4]~5                                        ; out              ;
+; |ULA|bufferSaida[3]~6                                        ; |ULA|bufferSaida[3]~6                                        ; out              ;
+; |ULA|bufferSaida[2]~7                                        ; |ULA|bufferSaida[2]~7                                        ; out              ;
+; |ULA|bufferSaida[1]~8                                        ; |ULA|bufferSaida[1]~8                                        ; out              ;
+; |ULA|bufferSaida[7]~9                                        ; |ULA|bufferSaida[7]~9                                        ; out0             ;
+; |ULA|bufferSaida[7]~10                                       ; |ULA|bufferSaida[7]~10                                       ; out              ;
+; |ULA|bufferSaida[6]~11                                       ; |ULA|bufferSaida[6]~11                                       ; out              ;
+; |ULA|bufferSaida[5]~12                                       ; |ULA|bufferSaida[5]~12                                       ; out              ;
+; |ULA|bufferSaida[4]~13                                       ; |ULA|bufferSaida[4]~13                                       ; out              ;
+; |ULA|bufferSaida[3]~14                                       ; |ULA|bufferSaida[3]~14                                       ; out              ;
+; |ULA|bufferSaida[2]~15                                       ; |ULA|bufferSaida[2]~15                                       ; out              ;
+; |ULA|bufferSaida[1]~16                                       ; |ULA|bufferSaida[1]~16                                       ; out              ;
+; |ULA|bufferSaida[0]~17                                       ; |ULA|bufferSaida[0]~17                                       ; out              ;
+; |ULA|bufferSaida[0]~18                                       ; |ULA|bufferSaida[0]~18                                       ; out              ;
+; |ULA|bufferSaida[0]~19                                       ; |ULA|bufferSaida[0]~19                                       ; out              ;
+; |ULA|bufferSaida[1]~20                                       ; |ULA|bufferSaida[1]~20                                       ; out              ;
+; |ULA|bufferSaida[1]~21                                       ; |ULA|bufferSaida[1]~21                                       ; out              ;
+; |ULA|bufferSaida[1]~22                                       ; |ULA|bufferSaida[1]~22                                       ; out              ;
+; |ULA|bufferSaida[2]~23                                       ; |ULA|bufferSaida[2]~23                                       ; out              ;
+; |ULA|bufferSaida[2]~24                                       ; |ULA|bufferSaida[2]~24                                       ; out              ;
+; |ULA|bufferSaida[2]~25                                       ; |ULA|bufferSaida[2]~25                                       ; out              ;
+; |ULA|bufferSaida[3]~26                                       ; |ULA|bufferSaida[3]~26                                       ; out              ;
+; |ULA|bufferSaida[3]~27                                       ; |ULA|bufferSaida[3]~27                                       ; out              ;
+; |ULA|bufferSaida[3]~28                                       ; |ULA|bufferSaida[3]~28                                       ; out              ;
+; |ULA|bufferSaida[4]~29                                       ; |ULA|bufferSaida[4]~29                                       ; out              ;
+; |ULA|bufferSaida[4]~30                                       ; |ULA|bufferSaida[4]~30                                       ; out              ;
+; |ULA|bufferSaida[4]~31                                       ; |ULA|bufferSaida[4]~31                                       ; out              ;
+; |ULA|bufferSaida[5]~32                                       ; |ULA|bufferSaida[5]~32                                       ; out              ;
+; |ULA|bufferSaida[5]~33                                       ; |ULA|bufferSaida[5]~33                                       ; out              ;
+; |ULA|bufferSaida[5]~34                                       ; |ULA|bufferSaida[5]~34                                       ; out              ;
+; |ULA|bufferSaida[6]~35                                       ; |ULA|bufferSaida[6]~35                                       ; out              ;
+; |ULA|bufferSaida[6]~36                                       ; |ULA|bufferSaida[6]~36                                       ; out              ;
+; |ULA|bufferSaida[6]~37                                       ; |ULA|bufferSaida[6]~37                                       ; out              ;
+; |ULA|bufferSaida[7]~38                                       ; |ULA|bufferSaida[7]~38                                       ; out0             ;
+; |ULA|bufferSaida[7]~39                                       ; |ULA|bufferSaida[7]~39                                       ; out              ;
+; |ULA|bufferSaida[7]~40                                       ; |ULA|bufferSaida[7]~40                                       ; out0             ;
+; |ULA|bufferSaida[7]~41                                       ; |ULA|bufferSaida[7]~41                                       ; out              ;
+; |ULA|bufferSaida[7]~42                                       ; |ULA|bufferSaida[7]~42                                       ; out0             ;
+; |ULA|bufferSaida[7]~43                                       ; |ULA|bufferSaida[7]~43                                       ; out              ;
+; |ULA|X[0]                                                    ; |ULA|X[0]                                                    ; out              ;
+; |ULA|X[1]                                                    ; |ULA|X[1]                                                    ; out              ;
+; |ULA|X[2]                                                    ; |ULA|X[2]                                                    ; out              ;
+; |ULA|Y[0]                                                    ; |ULA|Y[0]                                                    ; out              ;
+; |ULA|Y[1]                                                    ; |ULA|Y[1]                                                    ; out              ;
+; |ULA|Y[3]                                                    ; |ULA|Y[3]                                                    ; out              ;
+; |ULA|Y[4]                                                    ; |ULA|Y[4]                                                    ; out              ;
+; |ULA|Y[5]                                                    ; |ULA|Y[5]                                                    ; out              ;
+; |ULA|Y[6]                                                    ; |ULA|Y[6]                                                    ; out              ;
+; |ULA|Y[7]                                                    ; |ULA|Y[7]                                                    ; out              ;
+; |ULA|selULA[0]                                               ; |ULA|selULA[0]                                               ; out              ;
+; |ULA|selULA[1]                                               ; |ULA|selULA[1]                                               ; out              ;
+; |ULA|selULA[2]                                               ; |ULA|selULA[2]                                               ; out              ;
+; |ULA|out_ac[0]                                               ; |ULA|out_ac[0]                                               ; pin_out          ;
+; |ULA|out_ac[1]                                               ; |ULA|out_ac[1]                                               ; pin_out          ;
+; |ULA|out_ac[2]                                               ; |ULA|out_ac[2]                                               ; pin_out          ;
+; |ULA|out_ac[3]                                               ; |ULA|out_ac[3]                                               ; pin_out          ;
+; |ULA|out_ac[4]                                               ; |ULA|out_ac[4]                                               ; pin_out          ;
+; |ULA|out_ac[5]                                               ; |ULA|out_ac[5]                                               ; pin_out          ;
+; |ULA|out_ac[6]                                               ; |ULA|out_ac[6]                                               ; pin_out          ;
+; |ULA|out_ac[7]                                               ; |ULA|out_ac[7]                                               ; pin_out          ;
+; |ULA|out_n                                                   ; |ULA|out_n                                                   ; pin_out          ;
+; |ULA|out_z                                                   ; |ULA|out_z                                                   ; pin_out          ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:7:uut|s~0    ; |ULA|somador8bits:instanciaSomador|somador:\gen:7:uut|s~0    ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:7:uut|s      ; |ULA|somador8bits:instanciaSomador|somador:\gen:7:uut|s      ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:6:uut|s~0    ; |ULA|somador8bits:instanciaSomador|somador:\gen:6:uut|s~0    ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:6:uut|s      ; |ULA|somador8bits:instanciaSomador|somador:\gen:6:uut|s      ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:6:uut|cout~0 ; |ULA|somador8bits:instanciaSomador|somador:\gen:6:uut|cout~0 ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:6:uut|cout   ; |ULA|somador8bits:instanciaSomador|somador:\gen:6:uut|cout   ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:5:uut|s~0    ; |ULA|somador8bits:instanciaSomador|somador:\gen:5:uut|s~0    ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:5:uut|s      ; |ULA|somador8bits:instanciaSomador|somador:\gen:5:uut|s      ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:5:uut|cout~0 ; |ULA|somador8bits:instanciaSomador|somador:\gen:5:uut|cout~0 ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:5:uut|cout   ; |ULA|somador8bits:instanciaSomador|somador:\gen:5:uut|cout   ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:4:uut|s~0    ; |ULA|somador8bits:instanciaSomador|somador:\gen:4:uut|s~0    ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:4:uut|s      ; |ULA|somador8bits:instanciaSomador|somador:\gen:4:uut|s      ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:4:uut|cout~0 ; |ULA|somador8bits:instanciaSomador|somador:\gen:4:uut|cout~0 ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:4:uut|cout   ; |ULA|somador8bits:instanciaSomador|somador:\gen:4:uut|cout   ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:3:uut|s~0    ; |ULA|somador8bits:instanciaSomador|somador:\gen:3:uut|s~0    ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:3:uut|s      ; |ULA|somador8bits:instanciaSomador|somador:\gen:3:uut|s      ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:3:uut|cout~0 ; |ULA|somador8bits:instanciaSomador|somador:\gen:3:uut|cout~0 ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:3:uut|cout   ; |ULA|somador8bits:instanciaSomador|somador:\gen:3:uut|cout   ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:2:uut|s~0    ; |ULA|somador8bits:instanciaSomador|somador:\gen:2:uut|s~0    ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:2:uut|s      ; |ULA|somador8bits:instanciaSomador|somador:\gen:2:uut|s      ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:2:uut|cout~0 ; |ULA|somador8bits:instanciaSomador|somador:\gen:2:uut|cout~0 ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:2:uut|cout   ; |ULA|somador8bits:instanciaSomador|somador:\gen:2:uut|cout   ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:1:uut|s~0    ; |ULA|somador8bits:instanciaSomador|somador:\gen:1:uut|s~0    ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:1:uut|s      ; |ULA|somador8bits:instanciaSomador|somador:\gen:1:uut|s      ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:1:uut|cout~0 ; |ULA|somador8bits:instanciaSomador|somador:\gen:1:uut|cout~0 ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:1:uut|cout~1 ; |ULA|somador8bits:instanciaSomador|somador:\gen:1:uut|cout~1 ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:1:uut|cout   ; |ULA|somador8bits:instanciaSomador|somador:\gen:1:uut|cout   ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:0:uut|s~0    ; |ULA|somador8bits:instanciaSomador|somador:\gen:0:uut|s~0    ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:0:uut|cout~1 ; |ULA|somador8bits:instanciaSomador|somador:\gen:0:uut|cout~1 ; out0             ;
+; |ULA|Equal0~0                                                ; |ULA|Equal0~0                                                ; out0             ;
+; |ULA|Equal1~0                                                ; |ULA|Equal1~0                                                ; out0             ;
+; |ULA|Equal2~0                                                ; |ULA|Equal2~0                                                ; out0             ;
+; |ULA|Equal3~0                                                ; |ULA|Equal3~0                                                ; out0             ;
+; |ULA|Equal4~0                                                ; |ULA|Equal4~0                                                ; out0             ;
+; |ULA|Equal5~0                                                ; |ULA|Equal5~0                                                ; out0             ;
++--------------------------------------------------------------+--------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 1 during simulation.
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                                                                       ;
++--------------------------------------------------------------+--------------------------------------------------------------+------------------+
+; Node Name                                                    ; Output Port Name                                             ; Output Port Type ;
++--------------------------------------------------------------+--------------------------------------------------------------+------------------+
+; |ULA|bufferSaida~54                                          ; |ULA|bufferSaida~54                                          ; out0             ;
+; |ULA|bufferSaida~55                                          ; |ULA|bufferSaida~55                                          ; out0             ;
+; |ULA|bufferSaida~56                                          ; |ULA|bufferSaida~56                                          ; out0             ;
+; |ULA|bufferSaida~57                                          ; |ULA|bufferSaida~57                                          ; out0             ;
+; |ULA|bufferSaida~58                                          ; |ULA|bufferSaida~58                                          ; out0             ;
+; |ULA|bufferSaida~59                                          ; |ULA|bufferSaida~59                                          ; out0             ;
+; |ULA|X[3]                                                    ; |ULA|X[3]                                                    ; out              ;
+; |ULA|X[4]                                                    ; |ULA|X[4]                                                    ; out              ;
+; |ULA|X[5]                                                    ; |ULA|X[5]                                                    ; out              ;
+; |ULA|X[6]                                                    ; |ULA|X[6]                                                    ; out              ;
+; |ULA|X[7]                                                    ; |ULA|X[7]                                                    ; out              ;
+; |ULA|Y[2]                                                    ; |ULA|Y[2]                                                    ; out              ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:6:uut|cout~1 ; |ULA|somador8bits:instanciaSomador|somador:\gen:6:uut|cout~1 ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:5:uut|cout~1 ; |ULA|somador8bits:instanciaSomador|somador:\gen:5:uut|cout~1 ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:4:uut|cout~1 ; |ULA|somador8bits:instanciaSomador|somador:\gen:4:uut|cout~1 ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:3:uut|cout~1 ; |ULA|somador8bits:instanciaSomador|somador:\gen:3:uut|cout~1 ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:2:uut|cout~1 ; |ULA|somador8bits:instanciaSomador|somador:\gen:2:uut|cout~1 ; out0             ;
++--------------------------------------------------------------+--------------------------------------------------------------+------------------+
+
+
+The following table displays output ports that do not toggle to 0 during simulation.
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                                                                                       ;
++--------------------------------------------------------------+--------------------------------------------------------------+------------------+
+; Node Name                                                    ; Output Port Name                                             ; Output Port Type ;
++--------------------------------------------------------------+--------------------------------------------------------------+------------------+
+; |ULA|bufferSaida~55                                          ; |ULA|bufferSaida~55                                          ; out0             ;
+; |ULA|bufferSaida~56                                          ; |ULA|bufferSaida~56                                          ; out0             ;
+; |ULA|bufferSaida~57                                          ; |ULA|bufferSaida~57                                          ; out0             ;
+; |ULA|bufferSaida~58                                          ; |ULA|bufferSaida~58                                          ; out0             ;
+; |ULA|bufferSaida~59                                          ; |ULA|bufferSaida~59                                          ; out0             ;
+; |ULA|X[3]                                                    ; |ULA|X[3]                                                    ; out              ;
+; |ULA|X[4]                                                    ; |ULA|X[4]                                                    ; out              ;
+; |ULA|X[5]                                                    ; |ULA|X[5]                                                    ; out              ;
+; |ULA|X[6]                                                    ; |ULA|X[6]                                                    ; out              ;
+; |ULA|X[7]                                                    ; |ULA|X[7]                                                    ; out              ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:6:uut|cout~1 ; |ULA|somador8bits:instanciaSomador|somador:\gen:6:uut|cout~1 ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:5:uut|cout~1 ; |ULA|somador8bits:instanciaSomador|somador:\gen:5:uut|cout~1 ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:4:uut|cout~1 ; |ULA|somador8bits:instanciaSomador|somador:\gen:4:uut|cout~1 ; out0             ;
+; |ULA|somador8bits:instanciaSomador|somador:\gen:3:uut|cout~1 ; |ULA|somador8bits:instanciaSomador|somador:\gen:3:uut|cout~1 ; out0             ;
++--------------------------------------------------------------+--------------------------------------------------------------+------------------+
+
+
++---------------------+
+; Simulator INI Usage ;
++--------+------------+
+; Option ; Usage      ;
++--------+------------+
+
+
++--------------------+
+; Simulator Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Simulator
+    Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+    Info: Processing started: Mon Jun 10 18:56:38 2019
+Info: Command: quartus_sim --simulation_results_format=VWF NeanderProcessor -c NeanderProcessor
+Info (324025): Using vector source file "/home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl-master/ULAwafeform.vwf"
+Info (310003): Option to preserve fewer signal transitions to reduce memory requirements is enabled
+    Info (310004): Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
+Info (310002): Simulation partitioned into 1 sub-simulations
+Info (328053): Simulation coverage is      86.82 %
+Info (328052): Number of transitions in simulation is 563
+Info (324045): Vector file NeanderProcessor.sim.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
+Info: Quartus II 64-Bit Simulator was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 657 megabytes
+    Info: Processing ended: Mon Jun 10 18:56:39 2019
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

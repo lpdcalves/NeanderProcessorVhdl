@@ -1,0 +1,209 @@
+|ULA
+X[0] => bufferSaida~44.IN0
+X[0] => bufferSaida~52.IN0
+X[0] => somador8bits:instanciaSomador.asum[0]
+X[0] => bufferSaida[0]~1.DATAB
+X[1] => bufferSaida~45.IN0
+X[1] => bufferSaida~53.IN0
+X[1] => somador8bits:instanciaSomador.asum[1]
+X[1] => bufferSaida[1]~8.DATAB
+X[2] => bufferSaida~46.IN0
+X[2] => bufferSaida~54.IN0
+X[2] => somador8bits:instanciaSomador.asum[2]
+X[2] => bufferSaida[2]~7.DATAB
+X[3] => bufferSaida~47.IN0
+X[3] => bufferSaida~55.IN0
+X[3] => somador8bits:instanciaSomador.asum[3]
+X[3] => bufferSaida[3]~6.DATAB
+X[4] => bufferSaida~48.IN0
+X[4] => bufferSaida~56.IN0
+X[4] => somador8bits:instanciaSomador.asum[4]
+X[4] => bufferSaida[4]~5.DATAB
+X[5] => bufferSaida~49.IN0
+X[5] => bufferSaida~57.IN0
+X[5] => somador8bits:instanciaSomador.asum[5]
+X[5] => bufferSaida[5]~4.DATAB
+X[6] => bufferSaida~50.IN0
+X[6] => bufferSaida~58.IN0
+X[6] => somador8bits:instanciaSomador.asum[6]
+X[6] => bufferSaida[6]~3.DATAB
+X[7] => bufferSaida~51.IN0
+X[7] => bufferSaida~59.IN0
+X[7] => somador8bits:instanciaSomador.asum[7]
+X[7] => bufferSaida[7]~2.DATAB
+Y[0] => bufferSaida~44.IN1
+Y[0] => bufferSaida~52.IN1
+Y[0] => somador8bits:instanciaSomador.bsum[0]
+Y[0] => bufferSaida[0]~1.DATAA
+Y[1] => bufferSaida~45.IN1
+Y[1] => bufferSaida~53.IN1
+Y[1] => somador8bits:instanciaSomador.bsum[1]
+Y[1] => bufferSaida[1]~8.DATAA
+Y[2] => bufferSaida~46.IN1
+Y[2] => bufferSaida~54.IN1
+Y[2] => somador8bits:instanciaSomador.bsum[2]
+Y[2] => bufferSaida[2]~7.DATAA
+Y[3] => bufferSaida~47.IN1
+Y[3] => bufferSaida~55.IN1
+Y[3] => somador8bits:instanciaSomador.bsum[3]
+Y[3] => bufferSaida[3]~6.DATAA
+Y[4] => bufferSaida~48.IN1
+Y[4] => bufferSaida~56.IN1
+Y[4] => somador8bits:instanciaSomador.bsum[4]
+Y[4] => bufferSaida[4]~5.DATAA
+Y[5] => bufferSaida~49.IN1
+Y[5] => bufferSaida~57.IN1
+Y[5] => somador8bits:instanciaSomador.bsum[5]
+Y[5] => bufferSaida[5]~4.DATAA
+Y[6] => bufferSaida~50.IN1
+Y[6] => bufferSaida~58.IN1
+Y[6] => somador8bits:instanciaSomador.bsum[6]
+Y[6] => bufferSaida[6]~3.DATAA
+Y[7] => bufferSaida~51.IN1
+Y[7] => bufferSaida~59.IN1
+Y[7] => somador8bits:instanciaSomador.bsum[7]
+Y[7] => bufferSaida[7]~2.DATAA
+selULA[0] => Equal0.IN1
+selULA[0] => Equal1.IN2
+selULA[0] => Equal2.IN1
+selULA[0] => Equal3.IN2
+selULA[0] => Equal4.IN2
+selULA[1] => Equal0.IN0
+selULA[1] => Equal1.IN1
+selULA[1] => Equal2.IN2
+selULA[1] => Equal3.IN1
+selULA[1] => Equal4.IN1
+selULA[2] => Equal0.IN2
+selULA[2] => Equal1.IN0
+selULA[2] => Equal2.IN0
+selULA[2] => Equal3.IN0
+selULA[2] => Equal4.IN0
+out_ac[0] <= bufferSaida[0]~19.DB_MAX_OUTPUT_PORT_TYPE
+out_ac[1] <= bufferSaida[1]~22.DB_MAX_OUTPUT_PORT_TYPE
+out_ac[2] <= bufferSaida[2]~25.DB_MAX_OUTPUT_PORT_TYPE
+out_ac[3] <= bufferSaida[3]~28.DB_MAX_OUTPUT_PORT_TYPE
+out_ac[4] <= bufferSaida[4]~31.DB_MAX_OUTPUT_PORT_TYPE
+out_ac[5] <= bufferSaida[5]~34.DB_MAX_OUTPUT_PORT_TYPE
+out_ac[6] <= bufferSaida[6]~37.DB_MAX_OUTPUT_PORT_TYPE
+out_ac[7] <= bufferSaida[7]~43.DB_MAX_OUTPUT_PORT_TYPE
+out_n <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+out_z <= Equal5.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ULA|somador8bits:instanciaSomador
+asum[0] => somador:gen:0:uut.a
+asum[1] => somador:gen:1:uut.a
+asum[2] => somador:gen:2:uut.a
+asum[3] => somador:gen:3:uut.a
+asum[4] => somador:gen:4:uut.a
+asum[5] => somador:gen:5:uut.a
+asum[6] => somador:gen:6:uut.a
+asum[7] => somador:gen:7:uut.a
+bsum[0] => somador:gen:0:uut.b
+bsum[1] => somador:gen:1:uut.b
+bsum[2] => somador:gen:2:uut.b
+bsum[3] => somador:gen:3:uut.b
+bsum[4] => somador:gen:4:uut.b
+bsum[5] => somador:gen:5:uut.b
+bsum[6] => somador:gen:6:uut.b
+bsum[7] => somador:gen:7:uut.b
+cinsum => somador:gen:0:uut.cin
+ssum[0] <= somador:gen:0:uut.s
+ssum[1] <= somador:gen:1:uut.s
+ssum[2] <= somador:gen:2:uut.s
+ssum[3] <= somador:gen:3:uut.s
+ssum[4] <= somador:gen:4:uut.s
+ssum[5] <= somador:gen:5:uut.s
+ssum[6] <= somador:gen:6:uut.s
+ssum[7] <= somador:gen:7:uut.s
+coutsum <= somador:gen:7:uut.cout
+
+
+|ULA|somador8bits:instanciaSomador|somador:\gen:0:uut
+a => s~0.IN0
+a => cout~1.IN0
+b => s~0.IN1
+b => cout~1.IN1
+cin => s~1.IN1
+cin => cout~0.IN1
+s <= s~1.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ULA|somador8bits:instanciaSomador|somador:\gen:1:uut
+a => s~0.IN0
+a => cout~1.IN0
+b => s~0.IN1
+b => cout~1.IN1
+cin => s~1.IN1
+cin => cout~0.IN1
+s <= s~1.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ULA|somador8bits:instanciaSomador|somador:\gen:2:uut
+a => s~0.IN0
+a => cout~1.IN0
+b => s~0.IN1
+b => cout~1.IN1
+cin => s~1.IN1
+cin => cout~0.IN1
+s <= s~1.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ULA|somador8bits:instanciaSomador|somador:\gen:3:uut
+a => s~0.IN0
+a => cout~1.IN0
+b => s~0.IN1
+b => cout~1.IN1
+cin => s~1.IN1
+cin => cout~0.IN1
+s <= s~1.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ULA|somador8bits:instanciaSomador|somador:\gen:4:uut
+a => s~0.IN0
+a => cout~1.IN0
+b => s~0.IN1
+b => cout~1.IN1
+cin => s~1.IN1
+cin => cout~0.IN1
+s <= s~1.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ULA|somador8bits:instanciaSomador|somador:\gen:5:uut
+a => s~0.IN0
+a => cout~1.IN0
+b => s~0.IN1
+b => cout~1.IN1
+cin => s~1.IN1
+cin => cout~0.IN1
+s <= s~1.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ULA|somador8bits:instanciaSomador|somador:\gen:6:uut
+a => s~0.IN0
+a => cout~1.IN0
+b => s~0.IN1
+b => cout~1.IN1
+cin => s~1.IN1
+cin => cout~0.IN1
+s <= s~1.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ULA|somador8bits:instanciaSomador|somador:\gen:7:uut
+a => s~0.IN0
+a => cout~1.IN0
+b => s~0.IN1
+b => cout~1.IN1
+cin => s~1.IN1
+cin => cout~0.IN1
+s <= s~1.DB_MAX_OUTPUT_PORT_TYPE
+cout <= cout~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
