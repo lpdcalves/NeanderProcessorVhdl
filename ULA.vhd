@@ -6,7 +6,12 @@ entity ULA is
 port(
 	X: in std_logic_vector (7 downto 0);
 	Y: in std_logic_vector(7 downto 0);
-	selULA: in std_logic_vector(2 downto 0);
+	
+	alu_passy : IN std_logic;
+	alu_add : IN std_logic;
+	alu_or : IN std_logic;
+	alu_and : IN std_logic;
+	alu_not : IN std_logic;
 	
 	out_ac:	out std_logic_vector(7 downto 0);
 	out_n:	out std_logic;
