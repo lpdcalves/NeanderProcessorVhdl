@@ -6,7 +6,7 @@ entity ULA is
 port(
 	X: in std_logic_vector (7 downto 0);
 	Y: in std_logic_vector(7 downto 0);
-	
+
 	alu_passy : IN std_logic;
 	alu_add : IN std_logic;
 	alu_or : IN std_logic;
@@ -47,11 +47,11 @@ begin
 															ssum(0)=>XPLUSY(0), ssum(1)=>XPLUSY(1),	ssum(2)=>XPLUSY(2),	ssum(3)=>XPLUSY(3), ssum(4)=>XPLUSY(4), ssum(5)=>XPLUSY(5),	ssum(6)=>XPLUSY(6),	ssum(7)=>XPLUSY(7),
 															cinsum => '0');
 	
-	bufferSaida <= XPLUSY when selULA = "000" else
-					(X AND Y) when selULA = "001" else
-					(X OR Y) when selULA = "010" else
-					(NOT X) when selULA = "011" else
-					Y when selULA = "100" else
+	bufferSaida <= XPLUSY when alu_add = '1' else
+					(X AND Y) when alu_and = '1' else
+					(X OR Y) when alu_or = '1' else
+					(NOT X) when alu_not = '1' else
+					Y when alu_passy = '1' else
 					"ZZZZZZZZ";
 	
 	out_n <= '1' when signed(bufferSaida) < 0 else '0';
