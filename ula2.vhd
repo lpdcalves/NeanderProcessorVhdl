@@ -5,7 +5,6 @@ USE IEEE.std_logic_unsigned.ALL;
 
 ENTITY ula2 IS
 	PORT (
-		ck : IN std_logic;
 		alu_passy : IN std_logic;
 		alu_add : IN std_logic;
 		alu_or : IN std_logic;
