@@ -17,8 +17,6 @@ begin
 	begin
 		if clock = '1' and cargaREM = '1' then
 			aux <= entrada;
-		else
-			aux <= "00000000";
 		end if;
 	end process;
 saida <= aux;
