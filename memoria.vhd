@@ -51,7 +51,7 @@ BEGIN
 			memdata(9) <= x"00";
 			memdata(10) <= x"09";
 			memdata(11) <= x"F6";
-			memdata(12) <= x"01";
+			memdata(12) <= x"03";
 			memdata(13) <= x"00";
 			memdata(14) <= x"00";
 			memdata(15) <= x"00";

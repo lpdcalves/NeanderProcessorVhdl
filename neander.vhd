@@ -29,18 +29,18 @@ component memoria IS
 );
 END component memoria; 
 
-component ula2 IS
+component ULA IS
 	PORT(alu_passy : IN std_logic;
 		alu_add : IN std_logic;
 		alu_or : IN std_logic;
 		alu_and : IN std_logic;
 		alu_not : IN std_logic;
-		alux_in : IN std_logic_vector(7 DOWNTO 0);
-		aluy_in : IN std_logic_vector(7 DOWNTO 0);
-		alu_out : OUT std_logic_vector(7 DOWNTO 0);
-		alun_out : OUT std_logic;
-		aluz_out : OUT std_logic);
-END component ula2; 
+		X : IN std_logic_vector(7 DOWNTO 0);
+		Y : IN std_logic_vector(7 DOWNTO 0);
+		out_ac : OUT std_logic_vector(7 DOWNTO 0);
+		out_n : OUT std_logic;
+		out_z : OUT std_logic);
+END component ULA; 
 
 	TYPE memarray IS ARRAY (0 TO 31) OF std_logic_vector(7 DOWNTO 0);
 	SIGNAL address : std_logic_vector(4 DOWNTO 0);
@@ -306,17 +306,17 @@ BEGIN
 END PROCESS datapath;
 
 
-ula1: ula2 port map 
+ula1: ULA port map 
 	   (alu_passy => alu_passy,
 		alu_add => alu_add,
 		alu_or => alu_or,
 		alu_and => alu_and,
 		alu_not => alu_not,
-		alux_in => alux_in,
-		aluy_in => aluy_in,
-		alu_out => alu_out,
-		alun_out => alun_out,
-		aluz_out => aluz_out);
+		X => alux_in,
+		Y => aluy_in,
+		out_ac => alu_out,
+		out_n => alun_out,
+		out_z => aluz_out);
 
 
 memoria1 : memoria port map

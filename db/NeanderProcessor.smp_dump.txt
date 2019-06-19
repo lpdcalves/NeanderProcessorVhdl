@@ -1,0 +1,26 @@
+
+State Machine - |main|neander:neander1|estadoatual
+Name estadoatual.doalunot estadoatual.dojump3 estadoatual.dojump2 estadoatual.dojump1 estadoatual.dontjump estadoatual.dostore5 estadoatual.dostore4 estadoatual.dostore3 estadoatual.dostore2 estadoatual.dostore1 estadoatual.doaluop5and estadoatual.doaluop5or estadoatual.doaluop5add estadoatual.doaluop5load estadoatual.doaluop4 estadoatual.doaluop3 estadoatual.doaluop2 estadoatual.doaluop1 estadoatual.decod estadoatual.fetch2 estadoatual.fetch1 estadoatual.fetch0 estadoatual.init 
+estadoatual.init 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+estadoatual.fetch0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+estadoatual.fetch1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+estadoatual.fetch2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+estadoatual.decod 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+estadoatual.doaluop1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+estadoatual.doaluop2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+estadoatual.doaluop3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+estadoatual.doaluop4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+estadoatual.doaluop5load 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+estadoatual.doaluop5add 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+estadoatual.doaluop5or 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+estadoatual.doaluop5and 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+estadoatual.dostore1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+estadoatual.dostore2 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+estadoatual.dostore3 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+estadoatual.dostore4 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+estadoatual.dostore5 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+estadoatual.dontjump 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+estadoatual.dojump1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+estadoatual.dojump2 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+estadoatual.dojump3 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+estadoatual.doalunot 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

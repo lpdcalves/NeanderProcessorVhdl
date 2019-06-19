@@ -1,5 +1,5 @@
 Analysis & Synthesis report for NeanderProcessor
-Sun Jun 16 21:29:42 2019
+Wed Jun 19 14:44:25 2019
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -13,11 +13,16 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Port Connectivity Checks: "somador8bits:instanciaSomador"
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  8. State Machine - |main|neander:neander1|estadoatual
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Port Connectivity Checks: "neander:neander1|ULA:ula1|somador8bits:instanciaSomador"
+ 15. Port Connectivity Checks: "neander:neander1"
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -43,16 +48,16 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jun 16 21:29:42 2019      ;
+; Analysis & Synthesis Status        ; Successful - Wed Jun 19 14:44:25 2019      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; NeanderProcessor                           ;
-; Top-level Entity Name              ; ULA                                        ;
+; Top-level Entity Name              ; main                                       ;
 ; Family                             ; Cyclone II                                 ;
-; Total logic elements               ; 37                                         ;
-;     Total combinational functions  ; 37                                         ;
-;     Dedicated logic registers      ; 0                                          ;
-; Total registers                    ; 0                                          ;
-; Total pins                         ; 31                                         ;
+; Total logic elements               ; 581                                        ;
+;     Total combinational functions  ; 339                                        ;
+;     Dedicated logic registers      ; 314                                        ;
+; Total registers                    ; 314                                        ;
+; Total pins                         ; 23                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
@@ -66,7 +71,7 @@ applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP2C35F672C6       ;                    ;
-; Top-level entity name                                                      ; ULA                ; NeanderProcessor   ;
+; Top-level entity name                                                      ; main               ; NeanderProcessor   ;
 ; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -161,56 +166,143 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                          ; Library ;
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+; neander.vhd                      ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/neander.vhd      ;         ;
+; memoria.vhd                      ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/memoria.vhd      ;         ;
+; main.vhd                         ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/main.vhd         ;         ;
 ; ULA.vhd                          ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/ULA.vhd          ;         ;
 ; somador.vhd                      ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/somador.vhd      ;         ;
 ; somador8bits.vhd                 ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/somador8bits.vhd ;         ;
 +----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                     ;
-+---------------------------------------------+-------------------+
-; Resource                                    ; Usage             ;
-+---------------------------------------------+-------------------+
-; Estimated Total logic elements              ; 37                ;
-;                                             ;                   ;
-; Total combinational functions               ; 37                ;
-; Logic element usage by number of LUT inputs ;                   ;
-;     -- 4 input functions                    ; 23                ;
-;     -- 3 input functions                    ; 8                 ;
-;     -- <=2 input functions                  ; 6                 ;
-;                                             ;                   ;
-; Logic elements by mode                      ;                   ;
-;     -- normal mode                          ; 37                ;
-;     -- arithmetic mode                      ; 0                 ;
-;                                             ;                   ;
-; Total registers                             ; 0                 ;
-;     -- Dedicated logic registers            ; 0                 ;
-;     -- I/O registers                        ; 0                 ;
-;                                             ;                   ;
-; I/O pins                                    ; 31                ;
-; Embedded Multiplier 9-bit elements          ; 0                 ;
-; Maximum fan-out node                        ; bufferSaida[7]~10 ;
-; Maximum fan-out                             ; 10                ;
-; Total fan-out                               ; 147               ;
-; Average fan-out                             ; 2.16              ;
-+---------------------------------------------+-------------------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 581   ;
+;                                             ;       ;
+; Total combinational functions               ; 339   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 218   ;
+;     -- 3 input functions                    ; 77    ;
+;     -- <=2 input functions                  ; 44    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 335   ;
+;     -- arithmetic mode                      ; 4     ;
+;                                             ;       ;
+; Total registers                             ; 314   ;
+;     -- Dedicated logic registers            ; 314   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 23    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 314   ;
+; Total fan-out                               ; 2422  ;
+; Average fan-out                             ; 3.58  ;
++---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                   ;
-+------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------+--------------+
-; Compilation Hierarchy Node         ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                   ; Library Name ;
-+------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------+--------------+
-; |ULA                               ; 37 (26)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 31   ; 0            ; |ULA                                                  ;              ;
-;    |somador8bits:instanciaSomador| ; 11 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ULA|somador8bits:instanciaSomador                    ;              ;
-;       |somador:\gen:1:uut|         ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ULA|somador8bits:instanciaSomador|somador:\gen:1:uut ;              ;
-;       |somador:\gen:3:uut|         ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ULA|somador8bits:instanciaSomador|somador:\gen:3:uut ;              ;
-;       |somador:\gen:4:uut|         ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ULA|somador8bits:instanciaSomador|somador:\gen:4:uut ;              ;
-;       |somador:\gen:5:uut|         ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ULA|somador8bits:instanciaSomador|somador:\gen:5:uut ;              ;
-;       |somador:\gen:6:uut|         ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ULA|somador8bits:instanciaSomador|somador:\gen:6:uut ;              ;
-+------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                    ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                              ; Library Name ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+--------------+
+; |main                                    ; 339 (0)           ; 314 (0)      ; 0           ; 0            ; 0       ; 0         ; 23   ; 0            ; |main                                                                            ;              ;
+;    |neander:neander1|                    ; 339 (72)          ; 314 (58)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1                                                           ;              ;
+;       |ULA:ula1|                         ; 36 (24)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1                                                  ;              ;
+;          |somador8bits:instanciaSomador| ; 12 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1|somador8bits:instanciaSomador                    ;              ;
+;             |somador:\gen:1:uut|         ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1|somador8bits:instanciaSomador|somador:\gen:1:uut ;              ;
+;             |somador:\gen:2:uut|         ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1|somador8bits:instanciaSomador|somador:\gen:2:uut ;              ;
+;             |somador:\gen:3:uut|         ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1|somador8bits:instanciaSomador|somador:\gen:3:uut ;              ;
+;             |somador:\gen:4:uut|         ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1|somador8bits:instanciaSomador|somador:\gen:4:uut ;              ;
+;             |somador:\gen:5:uut|         ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1|somador8bits:instanciaSomador|somador:\gen:5:uut ;              ;
+;             |somador:\gen:7:uut|         ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1|somador8bits:instanciaSomador|somador:\gen:7:uut ;              ;
+;       |memoria:memoria1|                 ; 231 (231)         ; 256 (256)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|memoria:memoria1                                          ;              ;
++------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|neander:neander1|estadoatual                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ;
++--------------------------+----------------------+---------------------+---------------------+---------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------+----------------------+----------------------+----------------------+-------------------+--------------------+--------------------+--------------------+------------------+
+; Name                     ; estadoatual.doalunot ; estadoatual.dojump3 ; estadoatual.dojump2 ; estadoatual.dojump1 ; estadoatual.dontjump ; estadoatual.dostore5 ; estadoatual.dostore4 ; estadoatual.dostore3 ; estadoatual.dostore2 ; estadoatual.dostore1 ; estadoatual.doaluop5and ; estadoatual.doaluop5or ; estadoatual.doaluop5add ; estadoatual.doaluop5load ; estadoatual.doaluop4 ; estadoatual.doaluop3 ; estadoatual.doaluop2 ; estadoatual.doaluop1 ; estadoatual.decod ; estadoatual.fetch2 ; estadoatual.fetch1 ; estadoatual.fetch0 ; estadoatual.init ;
++--------------------------+----------------------+---------------------+---------------------+---------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------+----------------------+----------------------+----------------------+-------------------+--------------------+--------------------+--------------------+------------------+
+; estadoatual.init         ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ;
+; estadoatual.fetch0       ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 1                  ; 1                ;
+; estadoatual.fetch1       ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 1                  ; 0                  ; 1                ;
+; estadoatual.fetch2       ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 1                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.decod        ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 1                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.doaluop1     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 1                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.doaluop2     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 1                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.doaluop3     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 1                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.doaluop4     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 1                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.doaluop5load ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 1                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.doaluop5add  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 1                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.doaluop5or   ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 1                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.doaluop5and  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.dostore1     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.dostore2     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.dostore3     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.dostore4     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.dostore5     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.dontjump     ; 0                    ; 0                   ; 0                   ; 0                   ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.dojump1      ; 0                    ; 0                   ; 0                   ; 1                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.dojump2      ; 0                    ; 0                   ; 1                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.dojump3      ; 0                    ; 1                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
+; estadoatual.doalunot     ; 1                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
++--------------------------+----------------------+---------------------+---------------------+---------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------+----------------------+----------------------+----------------------+-------------------+--------------------+--------------------+--------------------+------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                        ;
++-----------------------------------------------------+-----------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal         ; Free of Timing Hazards ;
++-----------------------------------------------------+-----------------------------+------------------------+
+; neander:neander1|proximoestado.doaluop5and_1198     ; GND                         ; yes                    ;
+; neander:neander1|proximoestado.doaluop5or_1210      ; GND                         ; yes                    ;
+; neander:neander1|proximoestado.doalunot_1051        ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.doaluop5add_1222     ; GND                         ; yes                    ;
+; neander:neander1|proximoestado.doaluop5load_1234    ; GND                         ; yes                    ;
+; neander:neander1|proximoestado.dostore5_1126        ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.fetch0_1354          ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.doaluop1_1294        ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.dostore1_1186        ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.dojump1_1096         ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.doaluop3_1264        ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.dostore3_1156        ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.doaluop4_1249        ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.decod_1309           ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.dostore4_1141        ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.dojump3_1066         ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.fetch1_1339          ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.doaluop2_1279        ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.dostore2_1171        ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.dontjump_1111        ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.dojump2_1081         ; neander:neander1|Selector31 ; yes                    ;
+; neander:neander1|proximoestado.fetch2_1324          ; neander:neander1|Selector31 ; yes                    ;
+; Number of user-specified and inferred latches = 22  ;                             ;                        ;
++-----------------------------------------------------+-----------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                         ;
++-----------------------------------------+--------------------------------------------------+
+; Register name                           ; Reason for Removal                               ;
++-----------------------------------------+--------------------------------------------------+
+; neander:neander1|pc_out[4]              ; Merged with neander:neander1|\datapath:pc_reg[4] ;
+; neander:neander1|pc_out[3]              ; Merged with neander:neander1|\datapath:pc_reg[3] ;
+; neander:neander1|pc_out[2]              ; Merged with neander:neander1|\datapath:pc_reg[2] ;
+; neander:neander1|pc_out[1]              ; Merged with neander:neander1|\datapath:pc_reg[1] ;
+; neander:neander1|pc_out[0]              ; Merged with neander:neander1|\datapath:pc_reg[0] ;
+; neander:neander1|flagn_out              ; Merged with neander:neander1|ac_out[7]           ;
+; neander:neander1|\datapath:pc_reg[5..7] ; Lost fanout                                      ;
+; Total Number of Removed Registers = 9   ;                                                  ;
++-----------------------------------------+--------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -218,33 +310,88 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 314   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Synchronous Load   ; 10    ;
+; Number of registers using Asynchronous Clear ; 314   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 291   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |ULA|bufferSaida[0]        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++------------------------------------------------------------+
+; Inverted Register Statistics                               ;
++--------------------------------------------------+---------+
+; Inverted Register                                ; Fan out ;
++--------------------------------------------------+---------+
+; neander:neander1|memoria:memoria1|memdata[10][0] ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[3][0]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[12][0] ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[12][1] ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[3][1]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[1][1]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[11][1] ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[7][2]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[11][2] ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[10][3] ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[5][3]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[7][3]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[1][3]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[3][3]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[8][4]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[2][4]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[11][4] ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[8][5]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[4][5]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[2][5]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[0][5]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[6][5]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[11][5] ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[8][6]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[11][6] ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[8][7]  ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[11][7] ; 1       ;
+; neander:neander1|memoria:memoria1|memdata[4][7]  ; 1       ;
+; Total number of inverted registers = 28          ;         ;
++--------------------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|neander:neander1|rem_out[0]                  ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |main|neander:neander1|\datapath:pc_reg[0]         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |main|neander:neander1|proximoestado.doaluop5and   ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main|neander:neander1|ULA:ula1|bufferSaida[6]     ;
+; 32:1               ; 8 bits    ; 168 LEs       ; 168 LEs              ; 0 LEs                  ; No         ; |main|neander:neander1|memoria:memoria1|mem_out[0] ;
+; 256:1              ; 2 bits    ; 340 LEs       ; 8 LEs                ; 332 LEs                ; No         ; |main|neander:neander1|Mux5                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "somador8bits:instanciaSomador"                                                         ;
+; Port Connectivity Checks: "neander:neander1|ULA:ula1|somador8bits:instanciaSomador"                               ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port    ; Type   ; Severity ; Details                                                                             ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
 ; cinsum  ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; coutsum ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "neander:neander1"                                                                   ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; pc   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ri   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rrdm ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rrem ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; memo ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -262,9 +409,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Sun Jun 16 21:29:38 2019
+    Info: Processing started: Wed Jun 19 14:44:21 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off NeanderProcessor -c NeanderProcessor
 Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file ula2.vhd
+    Info (12022): Found design unit 1: ula2-comportamento
+    Info (12023): Found entity 1: ula2
+Info (12021): Found 2 design units, including 1 entities, in source file neander.vhd
+    Info (12022): Found design unit 1: neander-comportamento
+    Info (12023): Found entity 1: neander
+Info (12021): Found 2 design units, including 1 entities, in source file Mux2to1.vhd
+    Info (12022): Found design unit 1: Mux2to1-Multiplexador
+    Info (12023): Found entity 1: Mux2to1
+Info (12021): Found 2 design units, including 1 entities, in source file memoria.vhd
+    Info (12022): Found design unit 1: memoria-comportamento
+    Info (12023): Found entity 1: memoria
+Info (12021): Found 2 design units, including 1 entities, in source file main.vhd
+    Info (12022): Found design unit 1: main-comportamento
+    Info (12023): Found entity 1: main
 Info (12021): Found 2 design units, including 1 entities, in source file ULA.vhd
     Info (12022): Found design unit 1: ULA-ckt
     Info (12023): Found entity 1: ULA
@@ -274,27 +436,100 @@ Info (12021): Found 2 design units, including 1 entities, in source file somador
 Info (12021): Found 2 design units, including 1 entities, in source file somador8bits.vhd
     Info (12022): Found design unit 1: somador8bits-comportamento
     Info (12023): Found entity 1: somador8bits
-Info (12127): Elaborating entity "ULA" for the top level hierarchy
-Info (12128): Elaborating entity "somador8bits" for hierarchy "somador8bits:instanciaSomador"
-Info (12128): Elaborating entity "somador" for hierarchy "somador8bits:instanciaSomador|somador:\gen:0:uut"
+Info (12127): Elaborating entity "main" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at main.vhd(36): object "opCod" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at main.vhd(37): object "endMemoria" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at main.vhd(38): object "inputData" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at main.vhd(40): object "pc" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at main.vhd(41): object "ri" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at main.vhd(43): object "rrdm" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at main.vhd(44): object "rrem" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at main.vhd(45): object "memo" assigned a value but never read
+Info (12128): Elaborating entity "neander" for hierarchy "neander:neander1"
+Warning (10812): VHDL warning at neander.vhd(128): sensitivity list already contains flagz_out
+Warning (10492): VHDL Process Statement warning at neander.vhd(175): signal "flagn_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at neander.vhd(259): signal "alu_passy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at neander.vhd(259): signal "alu_add" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at neander.vhd(259): signal "alu_or" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at neander.vhd(259): signal "alu_and" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at neander.vhd(259): signal "alu_not" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at neander.vhd(128): inferring latch(es) for signal or variable "proximoestado", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "proximoestado.doalunot" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.dojump3" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.dojump2" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.dojump1" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.dontjump" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.dostore5" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.dostore4" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.dostore3" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.dostore2" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.dostore1" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.doaluop5and" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.doaluop5or" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.doaluop5add" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.doaluop5load" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.doaluop4" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.doaluop3" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.doaluop2" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.doaluop1" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.decod" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.fetch2" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.fetch1" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.fetch0" at neander.vhd(128)
+Info (10041): Inferred latch for "proximoestado.init" at neander.vhd(128)
+Info (12128): Elaborating entity "ULA" for hierarchy "neander:neander1|ULA:ula1"
+Info (12128): Elaborating entity "somador8bits" for hierarchy "neander:neander1|ULA:ula1|somador8bits:instanciaSomador"
+Info (12128): Elaborating entity "somador" for hierarchy "neander:neander1|ULA:ula1|somador8bits:instanciaSomador|somador:\gen:0:uut"
+Info (12128): Elaborating entity "memoria" for hierarchy "neander:neander1|memoria:memoria1"
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13047): Converted the fan-out from the tri-state buffer "bufferSaida[0]" to the node "Equal0" into an OR gate
-    Warning (13047): Converted the fan-out from the tri-state buffer "bufferSaida[1]" to the node "Equal0" into an OR gate
-    Warning (13047): Converted the fan-out from the tri-state buffer "bufferSaida[2]" to the node "Equal0" into an OR gate
-    Warning (13047): Converted the fan-out from the tri-state buffer "bufferSaida[3]" to the node "Equal0" into an OR gate
-    Warning (13047): Converted the fan-out from the tri-state buffer "bufferSaida[4]" to the node "Equal0" into an OR gate
-    Warning (13047): Converted the fan-out from the tri-state buffer "bufferSaida[5]" to the node "Equal0" into an OR gate
-    Warning (13047): Converted the fan-out from the tri-state buffer "bufferSaida[6]" to the node "Equal0" into an OR gate
-    Warning (13047): Converted the fan-out from the tri-state buffer "bufferSaida[7]" to the node "Equal0" into an OR gate
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[0]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[5]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[6]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[7]" feeding internal logic into a wire
+Warning (13012): Latch neander:neander1|proximoestado.doalunot_1051 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[7]
+Warning (13012): Latch neander:neander1|proximoestado.fetch0_1354 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[3]
+Warning (13012): Latch neander:neander1|proximoestado.doaluop1_1294 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[7]
+Warning (13012): Latch neander:neander1|proximoestado.dostore1_1186 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[7]
+Warning (13012): Latch neander:neander1|proximoestado.dojump1_1096 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[5]
+Warning (13012): Latch neander:neander1|proximoestado.decod_1309 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[7]
+Warning (13012): Latch neander:neander1|proximoestado.dontjump_1111 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[5]
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 68 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 21 input pins
-    Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 37 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 10 warnings
-    Info: Peak virtual memory: 648 megabytes
-    Info: Processing ended: Sun Jun 16 21:29:42 2019
+Warning (21074): Design contains 13 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "entrada[0]"
+    Warning (15610): No output dependent on input pin "entrada[1]"
+    Warning (15610): No output dependent on input pin "entrada[2]"
+    Warning (15610): No output dependent on input pin "entrada[3]"
+    Warning (15610): No output dependent on input pin "entrada[4]"
+    Warning (15610): No output dependent on input pin "entrada[5]"
+    Warning (15610): No output dependent on input pin "entrada[6]"
+    Warning (15610): No output dependent on input pin "entrada[7]"
+    Warning (15610): No output dependent on input pin "entrada[8]"
+    Warning (15610): No output dependent on input pin "modo[0]"
+    Warning (15610): No output dependent on input pin "modo[1]"
+    Warning (15610): No output dependent on input pin "bntEnter"
+    Warning (15610): No output dependent on input pin "btnFim"
+Info (21057): Implemented 642 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 619 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 54 warnings
+    Info: Peak virtual memory: 657 megabytes
+    Info: Processing ended: Wed Jun 19 14:44:25 2019
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:04
 
