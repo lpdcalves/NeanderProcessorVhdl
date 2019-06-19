@@ -14,7 +14,7 @@ end reg_rdm;
 architecture comportamento of reg_rdm is
 signal aux : std_logic_vector(7 downto 0);
 begin
-	process(clock, cargaRDM)
+	process(clock, cargaRDM, clear)
 	begin
 		if clear = '1' then
 			aux <= "00000000";
@@ -23,6 +23,7 @@ begin
 				aux <= entrada;
 			else
 				aux <= aux;
+			end if;
 		end if;
 	end process;
 saida <= aux;
