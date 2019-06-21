@@ -39,19 +39,33 @@ BEGIN
 		-- reset
 		IF (reset = '1') THEN
  
-			memdata(0) <= OPLDA;
-			memdata(1) <= x"0A";
-			memdata(2) <= OPADD;
-			memdata(3) <= x"0B";
-			memdata(4) <= OPJZ;
-			memdata(5) <= x"08";
-			memdata(6) <= OPLDA;
-			memdata(7) <= x"0C";
-			memdata(8) <= OPHLT;
+--			memdata(0) <= OPLDA;
+--			memdata(1) <= x"0A";
+--			memdata(2) <= OPADD;
+--			memdata(3) <= x"0B";
+--			memdata(4) <= OPJZ;
+--			memdata(5) <= x"08";
+--			memdata(6) <= OPLDA;
+--			memdata(7) <= x"0C";
+--			memdata(8) <= OPHLT;
+--			memdata(9) <= x"00";
+--			memdata(10) <= x"09";
+--			memdata(11) <= x"F6";
+--			memdata(12) <= x"01";
+
+			memdata(0) <= x"00"; -- OPLDA;
+			memdata(1) <= x"00"; -- x"1A";
+			memdata(2) <= x"00"; -- OPADD;
+			memdata(3) <= x"00"; -- x"1B";
+			memdata(4) <= x"00"; -- OPHLT;
+			memdata(5) <= x"00";
+			memdata(6) <= x"00";
+			memdata(7) <= x"00";
+			memdata(8) <= x"00";
 			memdata(9) <= x"00";
-			memdata(10) <= x"09";
-			memdata(11) <= x"F6";
-			memdata(12) <= x"03";
+			memdata(10) <= x"00";
+			memdata(11) <= x"00";
+			memdata(12) <= x"00";
 			memdata(13) <= x"00";
 			memdata(14) <= x"00";
 			memdata(15) <= x"00";
