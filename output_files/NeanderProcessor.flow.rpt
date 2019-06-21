@@ -1,5 +1,5 @@
 Flow report for NeanderProcessor
-Wed Jun 19 14:44:25 2019
+Fri Jun 21 18:54:07 2019
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -40,22 +40,22 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Wed Jun 19 14:44:25 2019      ;
+; Flow Status                        ; Successful - Fri Jun 21 18:54:07 2019      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; NeanderProcessor                           ;
 ; Top-level Entity Name              ; main                                       ;
 ; Family                             ; Cyclone II                                 ;
 ; Device                             ; EP2C35F672C6                               ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 581                                        ;
-;     Total combinational functions  ; 339                                        ;
-;     Dedicated logic registers      ; 314                                        ;
-; Total registers                    ; 314                                        ;
-; Total pins                         ; 23                                         ;
+; Total logic elements               ; 503 / 33,216 ( 2 % )                       ;
+;     Total combinational functions  ; 379 / 33,216 ( 1 % )                       ;
+;     Dedicated logic registers      ; 331 / 33,216 ( < 1 % )                     ;
+; Total registers                    ; 331                                        ;
+; Total pins                         ; 45 / 475 ( 9 % )                           ;
 ; Total virtual pins                 ; 0                                          ;
-; Total memory bits                  ; 0                                          ;
-; Embedded Multiplier 9-bit elements ; 0                                          ;
-; Total PLLs                         ; 0                                          ;
+; Total memory bits                  ; 0 / 483,840 ( 0 % )                        ;
+; Embedded Multiplier 9-bit elements ; 0 / 70 ( 0 % )                             ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                              ;
 +------------------------------------+--------------------------------------------+
 
 
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/19/2019 14:44:21 ;
+; Start date & time ; 06/21/2019 18:47:25 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; NeanderProcessor    ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+------------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value    ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+------------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 0.156096626131302                     ; --               ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 0.156115364527647                     ; --               ; --          ; --             ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                                    ; --               ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                           ; --               ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)             ; <None>           ; --          ; --             ;
@@ -91,29 +91,53 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+------------------+-------------+----------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                        ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:03     ; 1.0                     ; 618 MB              ; 00:00:04                           ;
-; Total                ; 00:00:03     ; --                      ; --                  ; 00:00:04                           ;
-+----------------------+--------------+-------------------------+---------------------+------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:00:09     ; 1.0                     ; 618 MB              ; 00:00:08                           ;
+; Fitter                    ; 00:00:23     ; 1.0                     ; 723 MB              ; 00:00:21                           ;
+; Assembler                 ; 00:00:07     ; 1.0                     ; 549 MB              ; 00:00:06                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 519 MB              ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 793 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 807 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 823 MB              ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 807 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 812 MB              ; 00:00:02                           ;
+; Total                     ; 00:00:48     ; --                      ; --                  ; 00:00:44                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+----------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                        ;
-+----------------------+------------------+----------------+------------+----------------+
-; Module Name          ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
-+----------------------+------------------+----------------+------------+----------------+
-; Analysis & Synthesis ; funbem01         ; Ubuntu 16.04.6 ; 16         ; x86_64         ;
-+----------------------+------------------+----------------+------------+----------------+
++---------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                             ;
++---------------------------+------------------+----------------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
++---------------------------+------------------+----------------+------------+----------------+
+; Analysis & Synthesis      ; funbem01         ; Ubuntu 16.04.6 ; 16         ; x86_64         ;
+; Fitter                    ; funbem01         ; Ubuntu 16.04.6 ; 16         ; x86_64         ;
+; Assembler                 ; funbem01         ; Ubuntu 16.04.6 ; 16         ; x86_64         ;
+; TimeQuest Timing Analyzer ; funbem01         ; Ubuntu 16.04.6 ; 16         ; x86_64         ;
+; EDA Netlist Writer        ; funbem01         ; Ubuntu 16.04.6 ; 16         ; x86_64         ;
+; EDA Netlist Writer        ; funbem01         ; Ubuntu 16.04.6 ; 16         ; x86_64         ;
+; EDA Netlist Writer        ; funbem01         ; Ubuntu 16.04.6 ; 16         ; x86_64         ;
+; EDA Netlist Writer        ; funbem01         ; Ubuntu 16.04.6 ; 16         ; x86_64         ;
+; EDA Netlist Writer        ; funbem01         ; Ubuntu 16.04.6 ; 16         ; x86_64         ;
++---------------------------+------------------+----------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off NeanderProcessor -c NeanderProcessor
+quartus_fit --read_settings_files=off --write_settings_files=off NeanderProcessor -c NeanderProcessor
+quartus_asm --read_settings_files=off --write_settings_files=off NeanderProcessor -c NeanderProcessor
+quartus_sta NeanderProcessor -c NeanderProcessor
+quartus_eda --read_settings_files=off --write_settings_files=off NeanderProcessor -c NeanderProcessor
+quartus_eda --gen_testbench --check_outputs=on --tool=modelsim_oem --format=verilog NeanderProcessor -c NeanderProcessor --vector_source="/home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/neander_testnot.vwf" --testbench_file=./simulation/qsim/NeanderProcessor.vt
+quartus_eda --functional=on --simulation=on --tool=modelsim_oem --format=verilog NeanderProcessor -c NeanderProcessor
+quartus_eda --gen_testbench --check_outputs=on --tool=modelsim_oem --format=verilog NeanderProcessor -c NeanderProcessor --vector_source="/home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/neander_testnot.vwf" --testbench_file=./simulation/qsim/NeanderProcessor.vt
+quartus_eda --functional=on --simulation=on --tool=modelsim_oem --format=verilog NeanderProcessor -c NeanderProcessor
 
 
 

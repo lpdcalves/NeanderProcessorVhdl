@@ -459,9 +459,9 @@ TRANSITION_LIST("bnt_enter")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 160.0;
+		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 830.0;
+		LEVEL 1 FOR 980.0;
 	}
 }
 
@@ -566,9 +566,8 @@ TRANSITION_LIST("modo[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 150.0;
 		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 830.0;
+		LEVEL 0 FOR 980.0;
 	}
 }
 
@@ -604,9 +603,7 @@ TRANSITION_LIST("raw_data[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 130.0;
-		LEVEL 0 FOR 860.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -624,9 +621,7 @@ TRANSITION_LIST("raw_data[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 130.0;
-		LEVEL 0 FOR 860.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -635,9 +630,7 @@ TRANSITION_LIST("raw_data[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 130.0;
-		LEVEL 0 FOR 860.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -655,9 +648,7 @@ TRANSITION_LIST("raw_data[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 130.0;
-		LEVEL 0 FOR 860.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 

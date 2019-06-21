@@ -1,5 +1,5 @@
 Analysis & Synthesis report for NeanderProcessor
-Wed Jun 19 14:44:25 2019
+Fri Jun 21 18:47:34 2019
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -16,13 +16,12 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
   8. State Machine - |main|neander:neander1|estadoatual
   9. User-Specified and Inferred Latches
  10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Inverted Register Statistics
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
  13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Port Connectivity Checks: "neander:neander1|ULA:ula1|somador8bits:instanciaSomador"
- 15. Port Connectivity Checks: "neander:neander1"
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+ 14. Port Connectivity Checks: "neander:neander1"
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
@@ -48,16 +47,16 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun 19 14:44:25 2019      ;
+; Analysis & Synthesis Status        ; Successful - Fri Jun 21 18:47:34 2019      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; NeanderProcessor                           ;
 ; Top-level Entity Name              ; main                                       ;
 ; Family                             ; Cyclone II                                 ;
-; Total logic elements               ; 581                                        ;
-;     Total combinational functions  ; 339                                        ;
-;     Dedicated logic registers      ; 314                                        ;
-; Total registers                    ; 314                                        ;
-; Total pins                         ; 23                                         ;
+; Total logic elements               ; 640                                        ;
+;     Total combinational functions  ; 379                                        ;
+;     Dedicated logic registers      ; 331                                        ;
+; Total registers                    ; 331                                        ;
+; Total pins                         ; 45                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
@@ -161,18 +160,17 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                 ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                          ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
-; neander.vhd                      ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/neander.vhd      ;         ;
-; memoria.vhd                      ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/memoria.vhd      ;         ;
-; main.vhd                         ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/main.vhd         ;         ;
-; ULA.vhd                          ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/ULA.vhd          ;         ;
-; somador.vhd                      ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/somador.vhd      ;         ;
-; somador8bits.vhd                 ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/somador8bits.vhd ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                      ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                               ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------+---------+
+; ula.vhd                          ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/ula.vhd               ;         ;
+; neander.vhd                      ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/neander.vhd           ;         ;
+; memoria.vhd                      ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/memoria.vhd           ;         ;
+; main.vhd                         ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/main.vhd              ;         ;
+; conversor_display.vhd            ; yes             ; User VHDL File  ; /home/funbem/Documentos/UFRN/Circuitos Digitais/NeanderProcessorVhdl/conversor_display.vhd ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -180,81 +178,93 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 581   ;
+; Estimated Total logic elements              ; 640   ;
 ;                                             ;       ;
-; Total combinational functions               ; 339   ;
+; Total combinational functions               ; 379   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 218   ;
-;     -- 3 input functions                    ; 77    ;
-;     -- <=2 input functions                  ; 44    ;
+;     -- 4 input functions                    ; 239   ;
+;     -- 3 input functions                    ; 119   ;
+;     -- <=2 input functions                  ; 21    ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 335   ;
-;     -- arithmetic mode                      ; 4     ;
+;     -- normal mode                          ; 368   ;
+;     -- arithmetic mode                      ; 11    ;
 ;                                             ;       ;
-; Total registers                             ; 314   ;
-;     -- Dedicated logic registers            ; 314   ;
+; Total registers                             ; 331   ;
+;     -- Dedicated logic registers            ; 331   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 23    ;
+; I/O pins                                    ; 45    ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 314   ;
-; Total fan-out                               ; 2422  ;
-; Average fan-out                             ; 3.58  ;
+; Maximum fan-out                             ; 331   ;
+; Total fan-out                               ; 2678  ;
+; Average fan-out                             ; 3.55  ;
 +---------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                    ;
-+------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node               ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                              ; Library Name ;
-+------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+--------------+
-; |main                                    ; 339 (0)           ; 314 (0)      ; 0           ; 0            ; 0       ; 0         ; 23   ; 0            ; |main                                                                            ;              ;
-;    |neander:neander1|                    ; 339 (72)          ; 314 (58)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1                                                           ;              ;
-;       |ULA:ula1|                         ; 36 (24)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1                                                  ;              ;
-;          |somador8bits:instanciaSomador| ; 12 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1|somador8bits:instanciaSomador                    ;              ;
-;             |somador:\gen:1:uut|         ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1|somador8bits:instanciaSomador|somador:\gen:1:uut ;              ;
-;             |somador:\gen:2:uut|         ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1|somador8bits:instanciaSomador|somador:\gen:2:uut ;              ;
-;             |somador:\gen:3:uut|         ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1|somador8bits:instanciaSomador|somador:\gen:3:uut ;              ;
-;             |somador:\gen:4:uut|         ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1|somador8bits:instanciaSomador|somador:\gen:4:uut ;              ;
-;             |somador:\gen:5:uut|         ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1|somador8bits:instanciaSomador|somador:\gen:5:uut ;              ;
-;             |somador:\gen:7:uut|         ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1|somador8bits:instanciaSomador|somador:\gen:7:uut ;              ;
-;       |memoria:memoria1|                 ; 231 (231)         ; 256 (256)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|memoria:memoria1                                          ;              ;
-+------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                               ;
++------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+--------------+
+; Compilation Hierarchy Node   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                     ; Library Name ;
++------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+--------------+
+; |main                        ; 379 (0)           ; 331 (0)      ; 0           ; 0            ; 0       ; 0         ; 45   ; 0            ; |main                                   ;              ;
+;    |conversor_display:conv1| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|conversor_display:conv1           ;              ;
+;    |conversor_display:conv2| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|conversor_display:conv2           ;              ;
+;    |neander:neander1|        ; 365 (132)         ; 331 (75)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1                  ;              ;
+;       |ULA:ula1|             ; 30 (30)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|ULA:ula1         ;              ;
+;       |memoria:memoria1|     ; 203 (203)         ; 256 (256)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main|neander:neander1|memoria:memoria1 ;              ;
++------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |main|neander:neander1|estadoatual                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ;
-+--------------------------+----------------------+---------------------+---------------------+---------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------+----------------------+----------------------+----------------------+-------------------+--------------------+--------------------+--------------------+------------------+
-; Name                     ; estadoatual.doalunot ; estadoatual.dojump3 ; estadoatual.dojump2 ; estadoatual.dojump1 ; estadoatual.dontjump ; estadoatual.dostore5 ; estadoatual.dostore4 ; estadoatual.dostore3 ; estadoatual.dostore2 ; estadoatual.dostore1 ; estadoatual.doaluop5and ; estadoatual.doaluop5or ; estadoatual.doaluop5add ; estadoatual.doaluop5load ; estadoatual.doaluop4 ; estadoatual.doaluop3 ; estadoatual.doaluop2 ; estadoatual.doaluop1 ; estadoatual.decod ; estadoatual.fetch2 ; estadoatual.fetch1 ; estadoatual.fetch0 ; estadoatual.init ;
-+--------------------------+----------------------+---------------------+---------------------+---------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------+----------------------+----------------------+----------------------+-------------------+--------------------+--------------------+--------------------+------------------+
-; estadoatual.init         ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ;
-; estadoatual.fetch0       ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 1                  ; 1                ;
-; estadoatual.fetch1       ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 1                  ; 0                  ; 1                ;
-; estadoatual.fetch2       ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 1                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.decod        ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 1                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.doaluop1     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 1                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.doaluop2     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 1                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.doaluop3     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 1                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.doaluop4     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 1                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.doaluop5load ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 1                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.doaluop5add  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 1                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.doaluop5or   ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 1                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.doaluop5and  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.dostore1     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.dostore2     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.dostore3     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.dostore4     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.dostore5     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.dontjump     ; 0                    ; 0                   ; 0                   ; 0                   ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.dojump1      ; 0                    ; 0                   ; 0                   ; 1                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.dojump2      ; 0                    ; 0                   ; 1                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.dojump3      ; 0                    ; 1                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-; estadoatual.doalunot     ; 1                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ;
-+--------------------------+----------------------+---------------------+---------------------+---------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------+----------------------+----------------------+----------------------+-------------------+--------------------+--------------------+--------------------+------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |main|neander:neander1|estadoatual                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++--------------------------+----------------------+---------------------+---------------------+---------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------+----------------------+----------------------+----------------------+-------------------+--------------------+--------------------+--------------------+------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+--------------------------+--------------------------+-------------------------+-------------------------+-------------------------+-------------------------+--------------------+
+; Name                     ; estadoatual.doalunot ; estadoatual.dojump3 ; estadoatual.dojump2 ; estadoatual.dojump1 ; estadoatual.dontjump ; estadoatual.dostore5 ; estadoatual.dostore4 ; estadoatual.dostore3 ; estadoatual.dostore2 ; estadoatual.dostore1 ; estadoatual.doaluop5and ; estadoatual.doaluop5or ; estadoatual.doaluop5add ; estadoatual.doaluop5load ; estadoatual.doaluop4 ; estadoatual.doaluop3 ; estadoatual.doaluop2 ; estadoatual.doaluop1 ; estadoatual.decod ; estadoatual.fetch2 ; estadoatual.fetch1 ; estadoatual.fetch0 ; estadoatual.init ; estadoatual.doreaddata5 ; estadoatual.doreaddata4 ; estadoatual.doreaddata3 ; estadoatual.doreaddata2 ; estadoatual.doreaddata1 ; estadoatual.doreaddata0 ; estadoatual.doreadprog8 ; estadoatual.doreadprog7 ; estadoatual.doreadprog6 ; estadoatual.doreadprog5 ; estadoatual.doreadprog4b ; estadoatual.doreadprog4a ; estadoatual.doreadprog3 ; estadoatual.doreadprog2 ; estadoatual.doreadprog1 ; estadoatual.doreadprog0 ; estadoatual.inicio ;
++--------------------------+----------------------+---------------------+---------------------+---------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------+----------------------+----------------------+----------------------+-------------------+--------------------+--------------------+--------------------+------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+--------------------------+--------------------------+-------------------------+-------------------------+-------------------------+-------------------------+--------------------+
+; estadoatual.inicio       ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 0                  ;
+; estadoatual.doreadprog0  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 1                       ; 1                  ;
+; estadoatual.doreadprog1  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 1                       ; 0                       ; 1                  ;
+; estadoatual.doreadprog2  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 1                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doreadprog3  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 1                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doreadprog4a ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 1                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doreadprog4b ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 1                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doreadprog5  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 1                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doreadprog6  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 1                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doreadprog7  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 1                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doreadprog8  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 1                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doreaddata0  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 1                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doreaddata1  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 1                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doreaddata2  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 1                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doreaddata3  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 1                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doreaddata4  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 1                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doreaddata5  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 1                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.init         ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 1                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.fetch0       ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 1                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.fetch1       ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 1                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.fetch2       ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 1                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.decod        ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 1                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doaluop1     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 1                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doaluop2     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 1                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doaluop3     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 1                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doaluop4     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 1                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doaluop5load ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 1                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doaluop5add  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 1                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doaluop5or   ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 1                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doaluop5and  ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.dostore1     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.dostore2     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.dostore3     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.dostore4     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.dostore5     ; 0                    ; 0                   ; 0                   ; 0                   ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.dontjump     ; 0                    ; 0                   ; 0                   ; 0                   ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.dojump1      ; 0                    ; 0                   ; 0                   ; 1                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.dojump2      ; 0                    ; 0                   ; 1                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.dojump3      ; 0                    ; 1                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
+; estadoatual.doalunot     ; 1                    ; 0                   ; 0                   ; 0                   ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                       ; 0                      ; 0                       ; 0                        ; 0                    ; 0                    ; 0                    ; 0                    ; 0                 ; 0                  ; 0                  ; 0                  ; 0                ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                       ; 0                        ; 0                        ; 0                       ; 0                       ; 0                       ; 0                       ; 1                  ;
++--------------------------+----------------------+---------------------+---------------------+---------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------+----------------------+----------------------+----------------------+-------------------+--------------------+--------------------+--------------------+------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+-------------------------+--------------------------+--------------------------+-------------------------+-------------------------+-------------------------+-------------------------+--------------------+
 
 
 +------------------------------------------------------------------------------------------------------------+
@@ -262,47 +272,75 @@ Encoding Type:  One-Hot
 +-----------------------------------------------------+-----------------------------+------------------------+
 ; Latch Name                                          ; Latch Enable Signal         ; Free of Timing Hazards ;
 +-----------------------------------------------------+-----------------------------+------------------------+
-; neander:neander1|proximoestado.doaluop5and_1198     ; GND                         ; yes                    ;
-; neander:neander1|proximoestado.doaluop5or_1210      ; GND                         ; yes                    ;
-; neander:neander1|proximoestado.doalunot_1051        ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.doaluop5add_1222     ; GND                         ; yes                    ;
-; neander:neander1|proximoestado.doaluop5load_1234    ; GND                         ; yes                    ;
-; neander:neander1|proximoestado.dostore5_1126        ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.fetch0_1354          ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.doaluop1_1294        ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.dostore1_1186        ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.dojump1_1096         ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.doaluop3_1264        ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.dostore3_1156        ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.doaluop4_1249        ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.decod_1309           ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.dostore4_1141        ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.dojump3_1066         ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.fetch1_1339          ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.doaluop2_1279        ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.dostore2_1171        ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.dontjump_1111        ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.dojump2_1081         ; neander:neander1|Selector31 ; yes                    ;
-; neander:neander1|proximoestado.fetch2_1324          ; neander:neander1|Selector31 ; yes                    ;
-; Number of user-specified and inferred latches = 22  ;                             ;                        ;
+; neander:neander1|proximoestado.doaluop5and_1583     ; GND                         ; yes                    ;
+; neander:neander1|proximoestado.doaluop5or_1595      ; GND                         ; yes                    ;
+; neander:neander1|proximoestado.doalunot_1436        ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doaluop5add_1607     ; GND                         ; yes                    ;
+; neander:neander1|proximoestado.doaluop5load_1619    ; GND                         ; yes                    ;
+; neander:neander1|proximoestado.doreadprog3_1949     ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreadprog6_1889     ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreaddata3_1799     ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.dostore5_1511        ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreadprog1_1979     ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreadprog4b_1919    ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreaddata1_1829     ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.fetch0_1739          ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doaluop1_1679        ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.dostore1_1571        ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.dojump1_1481         ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doaluop3_1649        ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.dostore3_1541        ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.dostore4_1526        ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreadprog2_1964     ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreadprog5_1904     ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreaddata2_1814     ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreaddata0_1844     ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreadprog0_1994     ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.init_1754            ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.dojump3_1451         ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.fetch1_1724          ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doaluop2_1664        ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.dostore2_1556        ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.dontjump_1496        ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.dojump2_1466         ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doaluop4_1634        ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.decod_1694           ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreadprog8_1859     ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreadprog4a_1934    ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreaddata5_1769     ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.fetch2_1709          ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.inicio_2009          ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreadprog7_1874     ; neander:neander1|Selector65 ; yes                    ;
+; neander:neander1|proximoestado.doreaddata4_1784     ; neander:neander1|Selector65 ; yes                    ;
+; Number of user-specified and inferred latches = 40  ;                             ;                        ;
 +-----------------------------------------------------+-----------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+--------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                         ;
-+-----------------------------------------+--------------------------------------------------+
-; Register name                           ; Reason for Removal                               ;
-+-----------------------------------------+--------------------------------------------------+
-; neander:neander1|pc_out[4]              ; Merged with neander:neander1|\datapath:pc_reg[4] ;
-; neander:neander1|pc_out[3]              ; Merged with neander:neander1|\datapath:pc_reg[3] ;
-; neander:neander1|pc_out[2]              ; Merged with neander:neander1|\datapath:pc_reg[2] ;
-; neander:neander1|pc_out[1]              ; Merged with neander:neander1|\datapath:pc_reg[1] ;
-; neander:neander1|pc_out[0]              ; Merged with neander:neander1|\datapath:pc_reg[0] ;
-; neander:neander1|flagn_out              ; Merged with neander:neander1|ac_out[7]           ;
-; neander:neander1|\datapath:pc_reg[5..7] ; Lost fanout                                      ;
-; Total Number of Removed Registers = 9   ;                                                  ;
-+-----------------------------------------+--------------------------------------------------+
++------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                   ;
++----------------------------------------------+-------------------------------------------------------+
+; Register name                                ; Reason for Removal                                    ;
++----------------------------------------------+-------------------------------------------------------+
+; neander:neander1|pc_out[4]                   ; Merged with neander:neander1|\registradores:pc_reg[4] ;
+; neander:neander1|pc_out[3]                   ; Merged with neander:neander1|\registradores:pc_reg[3] ;
+; neander:neander1|pc_out[2]                   ; Merged with neander:neander1|\registradores:pc_reg[2] ;
+; neander:neander1|pc_out[1]                   ; Merged with neander:neander1|\registradores:pc_reg[1] ;
+; neander:neander1|pc_out[0]                   ; Merged with neander:neander1|\registradores:pc_reg[0] ;
+; neander:neander1|flagn_out                   ; Merged with neander:neander1|ac_out[7]                ;
+; neander:neander1|\registradores:pc_reg[5..7] ; Lost fanout                                           ;
+; Total Number of Removed Registers = 9        ;                                                       ;
++----------------------------------------------+-------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                 ;
++-------------------------------------------+--------------------+--------------------------------------------+
+; Register name                             ; Reason for Removal ; Registers Removed due to This Register     ;
++-------------------------------------------+--------------------+--------------------------------------------+
+; neander:neander1|\registradores:pc_reg[7] ; Lost Fanouts       ; neander:neander1|\registradores:pc_reg[6], ;
+;                                           ;                    ; neander:neander1|\registradores:pc_reg[5]  ;
++-------------------------------------------+--------------------+--------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -310,51 +348,14 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 314   ;
+; Total registers                              ; 331   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 10    ;
-; Number of registers using Asynchronous Clear ; 314   ;
+; Number of registers using Synchronous Load   ; 6     ;
+; Number of registers using Asynchronous Clear ; 331   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 291   ;
+; Number of registers using Clock Enable       ; 290   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+------------------------------------------------------------+
-; Inverted Register Statistics                               ;
-+--------------------------------------------------+---------+
-; Inverted Register                                ; Fan out ;
-+--------------------------------------------------+---------+
-; neander:neander1|memoria:memoria1|memdata[10][0] ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[3][0]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[12][0] ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[12][1] ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[3][1]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[1][1]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[11][1] ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[7][2]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[11][2] ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[10][3] ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[5][3]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[7][3]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[1][3]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[3][3]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[8][4]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[2][4]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[11][4] ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[8][5]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[4][5]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[2][5]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[0][5]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[6][5]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[11][5] ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[8][6]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[11][6] ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[8][7]  ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[11][7] ; 1       ;
-; neander:neander1|memoria:memoria1|memdata[4][7]  ; 1       ;
-; Total number of inverted registers = 28          ;         ;
-+--------------------------------------------------+---------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -363,35 +364,24 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 ; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |main|neander:neander1|rem_out[0]                  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |main|neander:neander1|\datapath:pc_reg[0]         ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |main|neander:neander1|rdm_out[7]                  ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |main|neander:neander1|rdm_out[0]                  ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |main|neander:neander1|\registradores:pc_reg[7]    ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |main|neander:neander1|proximoestado.doaluop5and   ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main|neander:neander1|ULA:ula1|bufferSaida[6]     ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main|neander:neander1|ULA:ula1|bufferSaida[5]     ;
 ; 32:1               ; 8 bits    ; 168 LEs       ; 168 LEs              ; 0 LEs                  ; No         ; |main|neander:neander1|memoria:memoria1|mem_out[0] ;
-; 256:1              ; 2 bits    ; 340 LEs       ; 8 LEs                ; 332 LEs                ; No         ; |main|neander:neander1|Mux5                        ;
+; 256:1              ; 2 bits    ; 340 LEs       ; 8 LEs                ; 332 LEs                ; No         ; |main|neander:neander1|Mux4                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "neander:neander1|ULA:ula1|somador8bits:instanciaSomador"                               ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; cinsum  ; Input  ; Info     ; Stuck at GND                                                                        ;
-; coutsum ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "neander:neander1"                                                                   ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; pc   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; ri   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; rrdm ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; rrem ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; memo ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
++--------------------------------------------------+
+; Port Connectivity Checks: "neander:neander1"     ;
++----------------+-------+----------+--------------+
+; Port           ; Type  ; Severity ; Details      ;
++----------------+-------+----------+--------------+
+; inst_end[7..5] ; Input ; Info     ; Stuck at GND ;
+; inst_cod[3..0] ; Input ; Info     ; Stuck at GND ;
++----------------+-------+----------+--------------+
 
 
 +-------------------------------+
@@ -399,7 +389,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -409,128 +399,111 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Wed Jun 19 14:44:21 2019
+    Info: Processing started: Fri Jun 21 18:47:24 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off NeanderProcessor -c NeanderProcessor
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 2 design units, including 1 entities, in source file ula2.vhd
-    Info (12022): Found design unit 1: ula2-comportamento
-    Info (12023): Found entity 1: ula2
+Info (12021): Found 2 design units, including 1 entities, in source file ula.vhd
+    Info (12022): Found design unit 1: ULA-ckt
+    Info (12023): Found entity 1: ULA
 Info (12021): Found 2 design units, including 1 entities, in source file neander.vhd
     Info (12022): Found design unit 1: neander-comportamento
     Info (12023): Found entity 1: neander
-Info (12021): Found 2 design units, including 1 entities, in source file Mux2to1.vhd
-    Info (12022): Found design unit 1: Mux2to1-Multiplexador
-    Info (12023): Found entity 1: Mux2to1
 Info (12021): Found 2 design units, including 1 entities, in source file memoria.vhd
     Info (12022): Found design unit 1: memoria-comportamento
     Info (12023): Found entity 1: memoria
 Info (12021): Found 2 design units, including 1 entities, in source file main.vhd
     Info (12022): Found design unit 1: main-comportamento
     Info (12023): Found entity 1: main
-Info (12021): Found 2 design units, including 1 entities, in source file ULA.vhd
-    Info (12022): Found design unit 1: ULA-ckt
-    Info (12023): Found entity 1: ULA
-Info (12021): Found 2 design units, including 1 entities, in source file somador.vhd
-    Info (12022): Found design unit 1: somador-comportamento
-    Info (12023): Found entity 1: somador
-Info (12021): Found 2 design units, including 1 entities, in source file somador8bits.vhd
-    Info (12022): Found design unit 1: somador8bits-comportamento
-    Info (12023): Found entity 1: somador8bits
+Info (12021): Found 2 design units, including 1 entities, in source file conversor_display.vhd
+    Info (12022): Found design unit 1: conversor_display-comportamento
+    Info (12023): Found entity 1: conversor_display
 Info (12127): Elaborating entity "main" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at main.vhd(36): object "opCod" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at main.vhd(37): object "endMemoria" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at main.vhd(38): object "inputData" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at main.vhd(40): object "pc" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at main.vhd(41): object "ri" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at main.vhd(43): object "rrdm" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at main.vhd(44): object "rrem" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at main.vhd(45): object "memo" assigned a value but never read
 Info (12128): Elaborating entity "neander" for hierarchy "neander:neander1"
-Warning (10812): VHDL warning at neander.vhd(128): sensitivity list already contains flagz_out
-Warning (10492): VHDL Process Statement warning at neander.vhd(175): signal "flagn_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at neander.vhd(259): signal "alu_passy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at neander.vhd(259): signal "alu_add" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at neander.vhd(259): signal "alu_or" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at neander.vhd(259): signal "alu_and" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at neander.vhd(259): signal "alu_not" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10631): VHDL Process Statement warning at neander.vhd(128): inferring latch(es) for signal or variable "proximoestado", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "proximoestado.doalunot" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.dojump3" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.dojump2" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.dojump1" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.dontjump" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.dostore5" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.dostore4" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.dostore3" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.dostore2" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.dostore1" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.doaluop5and" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.doaluop5or" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.doaluop5add" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.doaluop5load" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.doaluop4" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.doaluop3" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.doaluop2" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.doaluop1" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.decod" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.fetch2" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.fetch1" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.fetch0" at neander.vhd(128)
-Info (10041): Inferred latch for "proximoestado.init" at neander.vhd(128)
+Warning (10812): VHDL warning at neander.vhd(143): sensitivity list already contains flagz_out
+Warning (10492): VHDL Process Statement warning at neander.vhd(291): signal "flagn_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at neander.vhd(375): signal "alu_passy" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at neander.vhd(375): signal "alu_add" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at neander.vhd(375): signal "alu_or" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at neander.vhd(375): signal "alu_and" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at neander.vhd(375): signal "alu_not" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at neander.vhd(141): inferring latch(es) for signal or variable "proximoestado", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "proximoestado.doalunot" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.dojump3" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.dojump2" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.dojump1" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.dontjump" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.dostore5" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.dostore4" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.dostore3" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.dostore2" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.dostore1" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doaluop5and" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doaluop5or" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doaluop5add" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doaluop5load" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doaluop4" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doaluop3" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doaluop2" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doaluop1" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.decod" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.fetch2" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.fetch1" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.fetch0" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.init" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreaddata5" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreaddata4" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreaddata3" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreaddata2" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreaddata1" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreaddata0" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreadprog8" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreadprog7" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreadprog6" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreadprog5" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreadprog4b" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreadprog4a" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreadprog3" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreadprog2" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreadprog1" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.doreadprog0" at neander.vhd(141)
+Info (10041): Inferred latch for "proximoestado.inicio" at neander.vhd(141)
 Info (12128): Elaborating entity "ULA" for hierarchy "neander:neander1|ULA:ula1"
-Info (12128): Elaborating entity "somador8bits" for hierarchy "neander:neander1|ULA:ula1|somador8bits:instanciaSomador"
-Info (12128): Elaborating entity "somador" for hierarchy "neander:neander1|ULA:ula1|somador8bits:instanciaSomador|somador:\gen:0:uut"
 Info (12128): Elaborating entity "memoria" for hierarchy "neander:neander1|memoria:memoria1"
+Info (12128): Elaborating entity "conversor_display" for hierarchy "conversor_display:conv1"
 Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[0]" feeding internal logic into a wire
-    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[1]" feeding internal logic into a wire
-    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[2]" feeding internal logic into a wire
-    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[3]" feeding internal logic into a wire
-    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[4]" feeding internal logic into a wire
-    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[5]" feeding internal logic into a wire
-    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[6]" feeding internal logic into a wire
-    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|out_ac[7]" feeding internal logic into a wire
-Warning (13012): Latch neander:neander1|proximoestado.doalunot_1051 has unsafe behavior
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|alu_out[0]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|alu_out[1]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|alu_out[2]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|alu_out[3]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|alu_out[4]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|alu_out[5]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|alu_out[6]" feeding internal logic into a wire
+    Warning (13049): Converted tri-state buffer "neander:neander1|ULA:ula1|alu_out[7]" feeding internal logic into a wire
+Warning (13012): Latch neander:neander1|proximoestado.doalunot_1436 has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[7]
-Warning (13012): Latch neander:neander1|proximoestado.fetch0_1354 has unsafe behavior
+Warning (13012): Latch neander:neander1|proximoestado.fetch0_1739 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[7]
+Warning (13012): Latch neander:neander1|proximoestado.doaluop1_1679 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[7]
+Warning (13012): Latch neander:neander1|proximoestado.dostore1_1571 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[7]
+Warning (13012): Latch neander:neander1|proximoestado.dojump1_1481 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[5]
+Warning (13012): Latch neander:neander1|proximoestado.dontjump_1496 has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[5]
+Warning (13012): Latch neander:neander1|proximoestado.inicio_2009 has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[3]
-Warning (13012): Latch neander:neander1|proximoestado.doaluop1_1294 has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[7]
-Warning (13012): Latch neander:neander1|proximoestado.dostore1_1186 has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[7]
-Warning (13012): Latch neander:neander1|proximoestado.dojump1_1096 has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[5]
-Warning (13012): Latch neander:neander1|proximoestado.decod_1309 has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[7]
-Warning (13012): Latch neander:neander1|proximoestado.dontjump_1111 has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal neander:neander1|ri_out[5]
-Info (13000): Registers with preset signals will power-up high
-Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 13 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "entrada[0]"
-    Warning (15610): No output dependent on input pin "entrada[1]"
-    Warning (15610): No output dependent on input pin "entrada[2]"
-    Warning (15610): No output dependent on input pin "entrada[3]"
-    Warning (15610): No output dependent on input pin "entrada[4]"
-    Warning (15610): No output dependent on input pin "entrada[5]"
-    Warning (15610): No output dependent on input pin "entrada[6]"
-    Warning (15610): No output dependent on input pin "entrada[7]"
-    Warning (15610): No output dependent on input pin "entrada[8]"
-    Warning (15610): No output dependent on input pin "modo[0]"
-    Warning (15610): No output dependent on input pin "modo[1]"
-    Warning (15610): No output dependent on input pin "bntEnter"
-    Warning (15610): No output dependent on input pin "btnFim"
-Info (21057): Implemented 642 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 738 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
-    Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 619 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 54 warnings
-    Info: Peak virtual memory: 657 megabytes
-    Info: Processing ended: Wed Jun 19 14:44:25 2019
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info (21059): Implemented 30 output pins
+    Info (21061): Implemented 693 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 32 warnings
+    Info: Peak virtual memory: 637 megabytes
+    Info: Processing ended: Fri Jun 21 18:47:34 2019
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:09
 
 

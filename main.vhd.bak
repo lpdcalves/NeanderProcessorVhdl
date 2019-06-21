@@ -1,42 +1,11 @@
-LIBRARY IEEE;
-USE IEEE.std_logic_1164.ALL;
-
-ENTITY main IS
-	PORT (
-		reset : IN std_logic;
-		clk : IN std_logic;
-		ac : OUT std_logic_vector(7 DOWNTO 0)
-	);
-END main;
-
-ARCHITECTURE comportamento OF main IS
-
-	COMPONENT neander IS
-		PORT (
-			ck : IN std_logic;
-			reset : IN std_logic;
-			pc : OUT std_logic_vector(7 DOWNTO 0);
-			ri : OUT std_logic_vector(7 DOWNTO 0);
-			ac : OUT std_logic_vector(7 DOWNTO 0);
-			rrdm : OUT std_logic_vector(7 DOWNTO 0);
-			rrem : OUT std_logic_vector(7 DOWNTO 0);
-			memo : OUT std_logic_vector(7 DOWNTO 0)
-		);
-	END COMPONENT;
-
-	COMPONENT osc IS
-		PORT (clk : OUT std_logic);
-	END COMPONENT osc;
-
-	SIGNAL pc : std_logic_vector(7 DOWNTO 0);
-	SIGNAL ri : std_logic_vector(7 DOWNTO 0);
-	SIGNAL estado : std_logic_vector(7 DOWNTO 0);
-	SIGNAL rrdm : std_logic_vector(7 DOWNTO 0);
-	SIGNAL rrem : std_logic_vector(7 DOWNTO 0);
-	SIGNAL memo : std_logic_vector(7 DOWNTO 0);
-
-BEGIN
-	neander1 : neander PORT MAP(clk, reset, pc, ri, ac, rrdm, rrem, memo); 
- 
-END comportamento;
+entity main is
+    Port ( matriz : in  STD_LOGIC; -- btn3
+           contador : in  STD_LOGIC; -- btn2
+           fatorial : in  STD_LOGIC; -- bnt1
+           switches : in  STD_LOGIC_VECTOR (3 downto 0); -- sw3 a sw0
+           clk : in  STD_LOGIC;
+           rst : in  STD_LOGIC; -- btn0
+           segmentos : out  STD_LOGIC_VECTOR (6 downto 0);
+			  anodos: out STD_LOGIC_VECTOR (3 downto 0));
+end main;
 

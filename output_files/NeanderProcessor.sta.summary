@@ -3,48 +3,48 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'clk'
-Slack : -6.952
-TNS   : -964.367
+Slack : -6.982
+TNS   : -1163.600
 
 Type  : Slow Model Setup 'neander:neander1|estadoatual.doaluop4'
-Slack : -2.669
-TNS   : -16.445
-
-Type  : Slow Model Hold 'neander:neander1|estadoatual.doaluop4'
-Slack : -0.289
-TNS   : -3.048
+Slack : -3.584
+TNS   : -42.333
 
 Type  : Slow Model Hold 'clk'
-Slack : 0.243
+Slack : 0.059
+TNS   : 0.000
+
+Type  : Slow Model Hold 'neander:neander1|estadoatual.doaluop4'
+Slack : 0.094
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'clk'
 Slack : -1.380
-TNS   : -315.380
+TNS   : -332.380
 
 Type  : Slow Model Minimum Pulse Width 'neander:neander1|estadoatual.doaluop4'
 Slack : 0.500
 TNS   : 0.000
 
 Type  : Fast Model Setup 'clk'
-Slack : -2.516
-TNS   : -300.866
+Slack : -2.474
+TNS   : -382.886
 
 Type  : Fast Model Setup 'neander:neander1|estadoatual.doaluop4'
-Slack : -0.679
-TNS   : -3.709
-
-Type  : Fast Model Hold 'neander:neander1|estadoatual.doaluop4'
-Slack : 0.057
-TNS   : 0.000
+Slack : -1.142
+TNS   : -9.626
 
 Type  : Fast Model Hold 'clk'
-Slack : 0.108
+Slack : -0.093
+TNS   : -1.124
+
+Type  : Fast Model Hold 'neander:neander1|estadoatual.doaluop4'
+Slack : 0.246
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'clk'
 Slack : -1.380
-TNS   : -315.380
+TNS   : -332.380
 
 Type  : Fast Model Minimum Pulse Width 'neander:neander1|estadoatual.doaluop4'
 Slack : 0.500

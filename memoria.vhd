@@ -38,21 +38,7 @@ BEGIN
 	BEGIN
 		-- reset
 		IF (reset = '1') THEN
- 
---			memdata(0) <= OPLDA;
---			memdata(1) <= x"0A";
---			memdata(2) <= OPADD;
---			memdata(3) <= x"0B";
---			memdata(4) <= OPJZ;
---			memdata(5) <= x"08";
---			memdata(6) <= OPLDA;
---			memdata(7) <= x"0C";
---			memdata(8) <= OPHLT;
---			memdata(9) <= x"00";
---			memdata(10) <= x"09";
---			memdata(11) <= x"F6";
---			memdata(12) <= x"01";
-
+		
 			memdata(0) <= x"00"; -- OPLDA;
 			memdata(1) <= x"00"; -- x"1A";
 			memdata(2) <= x"00"; -- OPADD;
@@ -84,7 +70,40 @@ BEGIN
 			memdata(28) <= x"00";
 			memdata(29) <= x"00";
 			memdata(30) <= x"00";
-			memdata(31) <= x"00";
+			memdata(31) <= x"00";		
+ 
+--memdata(0) <= OPLDA; 
+--memdata(1) <= x"1C";
+--memdata(2) <= OPNOT;
+--memdata(3) <= OPADD;
+--memdata(4) <= x"1D";
+--memdata(5) <= OPSTA; 
+--memdata(6) <= x"1E";
+--memdata(7) <= OPLDA; 
+--memdata(8) <= x"1A";
+--memdata(9) <= OPADD; 
+--memdata(10) <= x"1B";
+--memdata(11) <= OPADD; 
+--memdata(12) <= x"1E";
+--memdata(13) <= OPJN; 
+--memdata(14) <= x"12";
+--memdata(15) <= OPLDA; 
+--memdata(16) <= x"1D";
+--memdata(17) <= OPHLT;
+--memdata(18) <= OPLDA; 
+--memdata(19) <= x"1F";
+--memdata(20) <= OPHLT;
+--			memdata(21) <= x"00";
+--			memdata(22) <= x"00";
+--			memdata(23) <= x"00";
+--			memdata(24) <= x"00";
+--			memdata(25) <= x"00";
+--			memdata(26) <= x"02";
+--			memdata(27) <= x"03";  -- 1B
+--			memdata(28) <= x"07";  -- 1C
+--			memdata(29) <= x"01";  -- 1D
+--			memdata(30) <= x"00";  -- 1E 
+--			memdata(31) <= x"FF";
 
 			-- synchronized operations
 		ELSIF (rising_edge(ck)) THEN
